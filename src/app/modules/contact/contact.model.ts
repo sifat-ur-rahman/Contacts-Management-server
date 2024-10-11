@@ -1,0 +1,24 @@
+import { Schema, model } from 'mongoose';
+import {
+  ContactMethods,
+  ContactModel as ContactModel,
+  TContact as TContact,
+} from './contact.interface';
+
+const contactSchema = new Schema<TContact, ContactModel, ContactMethods>(
+  {
+    name: { type: String, required: true },
+    img: { type: String, required: true },
+    email : { type: String, required: true },
+    phone: { type: String, required: true },
+    address: { type: String, required: true },
+  },
+  { timestamps: true },
+);
+
+contactSchema.methods.isProductExits = async function (id: string) {
+  const existingProduct = await Contact.findById(id);
+  return existingProduct;
+};
+
+export const Contact = model<TContact, ContactModel>('Contact', contactSchema);
