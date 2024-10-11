@@ -17,7 +17,7 @@ This is the backend for the Contacts Management Application, built using Node.js
 Before you begin, ensure you have the following installed on your system:
 Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/contacts-management-backend.git
+   git clone https://github.com/sifat-ur-rahman/Contacts-Management-server.git
 ```
 
 ## Run the server application locally
