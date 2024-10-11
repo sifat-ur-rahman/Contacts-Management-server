@@ -1,22 +1,24 @@
-# Electric gadgets Management Dashboard server
-### https://timely-cannoli-fe9bd7.netlify.app/
+# Contacts Management Application - Backend
 
-## Project features
+This is the backend for the Contacts Management Application, built using Node.js, Express, MongoDB, and Mongoose. It provides a RESTful API to handle CRUD operations for managing contacts.
 
-- User authentication is secured using JWT, allowing users to register and log in with user and admin roles for system management.
-- This filtering system streamlines inventory management and facilitates customer searches based on the unique characteristics of electronic devices.
-- Sales history is categorized by weekly, daily, monthly, and yearly records, providing insights into sales trends over different time periods.
-- Real-time UI updates are gracefully implemented using RTK Query, ensuring a dynamic and responsive user interface.
-- Redux is employed for state management, maintaining a consistent application state for efficient data handling.
+## Features
 
-## User Info
-### User:
-- Email: `john1@example.com`
-- password: `123456`
+- **CRUD Operations**: Create, Read, Update, and Delete contacts.
+- **Input Validation**: Validation of contact data using Zod.
+- **MongoDB Integration**: Contacts data is stored and managed in MongoDB.
+- **TypeScript Support**: The backend is built using TypeScript for type safety.
+- **Profile Picture Support**: Users can upload a profile picture.
+- **Favorite Contacts**: Mark contacts as favorites.
+- **Error Handling**: Robust error handling and validation feedback.
 
-### Admin:
-- Email: `john3@example.com`
-- password: `123456`
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your system:
+Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/contacts-management-backend.git
+```
 
 ## Run the server application locally
 
