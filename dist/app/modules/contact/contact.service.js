@@ -45,6 +45,10 @@ const favoriteContactFromDB = (id) => __awaiter(void 0, void 0, void 0, function
     const result = yield contact.save();
     return result;
 });
+const getAllFavoritesContactsFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
+    const favoriteContacts = yield contact_model_1.Contact.find({ isFavorite: true });
+    return favoriteContacts;
+});
 const deleteOneContactFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield contact_model_1.Contact.findByIdAndDelete(id);
     return result;
@@ -55,5 +59,6 @@ exports.ContactService = {
     getOneContactFromDB,
     updateContactFromDB,
     favoriteContactFromDB,
+    getAllFavoritesContactsFromDB,
     deleteOneContactFromDB,
 };

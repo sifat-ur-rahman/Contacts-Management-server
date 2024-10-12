@@ -15,4 +15,5 @@ router.get('/api/contact/:contactId', contact_controller_1.ContactControllers.ge
 router.delete('/api/contact/:contactId', contact_controller_1.ContactControllers.deletedContact);
 router.put('/api/contact/:contactId', contact_controller_1.ContactControllers.updateContact);
 router.patch('/api/contact/:id/favorite', contact_controller_1.ContactControllers.favoriteContact);
+router.get('/api/contacts/favorites', contact_controller_1.ContactControllers.getAllFavoritesContacts);
 exports.ContactRoute = router;

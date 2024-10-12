@@ -86,6 +86,20 @@ const favoriteContact = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
         next(err);
     }
 });
+const getAllFavoritesContacts = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield contact_service_1.ContactService.getAllFavoritesContactsFromDB();
+        res.status(200).json({
+            success: true,
+            statusCode: 200,
+            message: 'Favorites Contacts retrieved successfully',
+            data: result,
+        });
+    }
+    catch (err) {
+        next(err);
+    }
+});
 const deletedContact = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { contactId } = req.params;
@@ -109,5 +123,6 @@ exports.ContactControllers = {
     getOneContact,
     updateContact,
     favoriteContact,
+    getAllFavoritesContacts,
     deletedContact,
 };

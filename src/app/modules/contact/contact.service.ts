@@ -39,6 +39,10 @@ const favoriteContactFromDB = async (id: string): Promise<TContact | null> => {
   const result = await contact.save();
   return result;
 };
+const getAllFavoritesContactsFromDB = async () => {
+  const favoriteContacts = await Contact.find({ isFavorite: true });
+  return favoriteContacts;
+};
 
 const deleteOneContactFromDB = async (id: string) => {
   const result = await Contact.findByIdAndDelete(id);
@@ -51,5 +55,6 @@ export const ContactService = {
   getOneContactFromDB,
   updateContactFromDB,
   favoriteContactFromDB,
+  getAllFavoritesContactsFromDB,
   deleteOneContactFromDB,
 };
