@@ -6,7 +6,7 @@ const ContactValidationSchema = z.object({
   body: z.object({
     name: z.string().min(1),
     img: z.string(),
-    email: z.string(),
+    email: z.string().optional(),
     phone: z.string(),
     address: z.string(),
   }),

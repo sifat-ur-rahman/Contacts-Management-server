@@ -9,8 +9,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContactService = void 0;
+const http_status_1 = __importDefault(require("http-status"));
+const AppError_1 = __importDefault(require("../../errors/AppError"));
 const contact_model_1 = require("./contact.model");
 const createContactIntoDB = (productData) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield contact_model_1.Contact.create(productData);
@@ -31,6 +36,15 @@ const updateContactFromDB = (id, updatedProductData) => __awaiter(void 0, void 0
     });
     return result;
 });
+const favoriteContactFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const contact = yield contact_model_1.Contact.findById(id);
+    if (!contact) {
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'Contact not found');
+    }
+    contact.isFavorite = !contact.isFavorite;
+    const result = yield contact.save();
+    return result;
+});
 const deleteOneContactFromDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield contact_model_1.Contact.findByIdAndDelete(id);
     return result;
@@ -40,5 +54,6 @@ exports.ContactService = {
     getAllContactsFromDB,
     getOneContactFromDB,
     updateContactFromDB,
+    favoriteContactFromDB,
     deleteOneContactFromDB,
 };

@@ -14,9 +14,10 @@ const mongoose_1 = require("mongoose");
 const contactSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     img: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, default: 'It has no email' },
     phone: { type: String, required: true },
     address: { type: String, required: true },
+    isFavorite: { type: Boolean, default: false },
 }, { timestamps: true });
 contactSchema.methods.isProductExits = function (id) {
     return __awaiter(this, void 0, void 0, function* () {

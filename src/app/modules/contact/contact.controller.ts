@@ -81,6 +81,26 @@ const updateContact = async (
     next(err);
   }
 };
+const favoriteContact = async (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  try {
+    const id = req.params.id;
+
+    const result = await ContactService.favoriteContactFromDB(id);
+
+    res.status(200).json({
+      success: true,
+      statusCode: 200,
+      message: 'Favorite Contact updated successfully',
+      data: result,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 const deletedContact = async (
   req: Request,
   res: Response,
@@ -107,5 +127,6 @@ export const ContactControllers = {
   getAllContacts,
   getOneContact,
   updateContact,
+  favoriteContact,
   deletedContact,
 };

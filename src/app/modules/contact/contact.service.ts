@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import httpStatus from 'http-status';
+import AppError from '../../errors/AppError';
 import { TContact } from './contact.interface';
 import { Contact } from './contact.model';
 
@@ -28,6 +30,15 @@ const updateContactFromDB = async (
   });
   return result;
 };
+const favoriteContactFromDB = async (id: string): Promise<TContact | null> => {
+  const contact = await Contact.findById(id);
+  if (!contact) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Contact not found');
+  }
+  contact.isFavorite = !contact.isFavorite;
+  const result = await contact.save();
+  return result;
+};
 
 const deleteOneContactFromDB = async (id: string) => {
   const result = await Contact.findByIdAndDelete(id);
@@ -39,5 +50,6 @@ export const ContactService = {
   getAllContactsFromDB,
   getOneContactFromDB,
   updateContactFromDB,
+  favoriteContactFromDB,
   deleteOneContactFromDB,
 };

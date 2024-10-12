@@ -9,6 +9,7 @@ export type TContact = {
   email: string;
   phone: string;
   address: string;
+  isFavorite: boolean;
 };
 
 export type ContactMethods = {

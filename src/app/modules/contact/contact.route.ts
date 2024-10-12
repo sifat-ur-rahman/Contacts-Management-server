@@ -18,5 +18,6 @@ router.get('/api/contact/:contactId', ContactControllers.getOneContact);
 router.delete('/api/contact/:contactId', ContactControllers.deletedContact);
 
 router.put('/api/contact/:contactId', ContactControllers.updateContact);
+router.patch('/api/contact/:id/favorite', ContactControllers.favoriteContact);
 
 export const ContactRoute = router;
