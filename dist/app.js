@@ -12,7 +12,10 @@ const auth_route_1 = require("./app/modules/auth/auth.route");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: 'http://localhost:3000',
+    origin: [
+        'https://contacts-management-eight.vercel.app/',
+        'http://localhost:3000',
+    ],
     credentials: true,
 }));
 //http://localhost:5173
